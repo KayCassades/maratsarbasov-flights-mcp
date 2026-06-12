@@ -8,12 +8,7 @@ MARKER = os.environ.get("FLIGHTS_AVIASALES_MARKER", "")
 BASE_URL = "https://api.travelpayouts.com"
 HEADERS = {"X-Access-Token": API_TOKEN}
 
-mcp = FastMCP(
-    "Travelpayouts Data",
-    transport=os.environ.get("FLIGHTS_TRANSPORT", "sse"),
-    host="0.0.0.0",
-    port=int(os.environ.get("FLIGHTS_HTTP_PORT", 4200)),
-    path=os.environ.get("FLIGHTS_HTTP_PATH", "/mcp"),
+mcp = FastMCP("Travelpayouts Data")
 )
 
 
@@ -228,4 +223,4 @@ async def airline_popular_routes(
 
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(transport="sse", host="0.0.0.0", port=4200, path="/mcp")
