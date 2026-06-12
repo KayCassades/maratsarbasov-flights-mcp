@@ -9,7 +9,6 @@ BASE_URL = "https://api.travelpayouts.com"
 HEADERS = {"X-Access-Token": API_TOKEN}
 
 mcp = FastMCP("Travelpayouts Data")
-)
 
 
 @mcp.tool()
